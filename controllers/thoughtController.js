@@ -68,7 +68,21 @@ async createReaction(req, res) {
             { $addToSet: { reactions: req.body } },
             { runValidators: true, new: true }
         );
-        thought ? res.json(thought) : res.status(404).json({ message: 'not found' });
+        thought ? res.json(thought) : res.status(404).json({ message: 'Not found' });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+},
+
+//delete reaction to a thought
+async deleteReaction(req, res) {
+    try {
+        const thought = await Thought.findOneAndUpdate(
+            { _id: req.params.thoughtId },
+            { $pull: { reactions: { reactionId: req.params.reactionId } } },
+            { runValidators: true, new: true }
+        );
+        thought ? res.json(thought) : res.status(404).json({ message: 'Not found' });
     } catch (err) {
         res.status(500).json(err);
     }

@@ -10,6 +10,8 @@ const users = [
     },
 ];
 
+console.log(connection);
+
 //connect to mongoose and drop existing database
 connection.once('open', async () => {
     console.log('connected');
