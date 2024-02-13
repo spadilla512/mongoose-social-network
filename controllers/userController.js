@@ -2,7 +2,7 @@ const { User } = require('../models');
 
 //get all users
 const userController = { getAllUsers(req, res) {
-    User.find({})
+    User.find()
         .then(userData => res.json(userData))
         .catch(err => res.status(500).json(err));
 },
@@ -47,7 +47,7 @@ deleteUser(req, res) {
 
 //add new friend
 addFriend(req, res) {
-    User.findByIdAndUpdate(
+    User.findOneAndUpdate(
         { _id: req.params.userId },
         { $addToSet: { friends: req.body.friendId || req.params.friendId } },
         { new: true }

@@ -4,8 +4,8 @@ const { Types } = require('mongoose');
 //get all thoughts
 const thoughtController = { async getAllThoughts (req, res) {
     try {
-        const thoughts = await Thought.find({});
-        res.json(thougthts);
+        const thoughts = await Thought.find();
+        res.json(thoughts);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -64,7 +64,7 @@ async updateThought(req, res) {
 async createReaction(req, res) {
     try {
         const thought = await Thought.findOneAndUpdate(
-            {_id: req.params.thoughtId },
+            { _id: req.params.thoughtId },
             { $addToSet: { reactions: req.body } },
             { runValidators: true, new: true }
         );
