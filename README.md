@@ -36,17 +36,60 @@ To install the following, enter in the command line:
  - Modemon: 'npm i nodemon'
  - Jest: 'npm i jest'
 
+ 'npm run start' in terminal to start application
+
 ## Images
 
+### Create User Preview
 
+![Alt text](assets/Images/Create-user.png)
+
+ - POST /api/user
+ - DELETE /api/user/:userId (to delete a single user)
+
+### All Users Preview
+
+![Alt text](assets/Images/All-Users.png)
+
+ - GET /api/user
+
+### Get Single User Preview
+
+![Alt text](assets/Images/Get-single-user.png)
+
+ - GET /api/user/:userId
+
+### Add Friend Preview
+
+![Alt text](assets/Images/Add-Friend.png)
+
+ - POST /api/user/:userId/friends/:friendId
+ - DELETE /api/user/:userId/friends/:friendId (to delete a friend)
+
+### Create Thought Preview
+
+![Alt text](assets/Images/Create-thought.png)
+
+ - POST /api/thought
+ - GET /api/thought (to get all thoughts)
+ - DELETE /api/thought/:thoughtId (to delete a thought)
+ - PUT /api/thought/:thoughtId (to update a thought)
+
+### Create Reaction Preview
+
+![Alt text](assets/Images/Create-Reaction.png)
+
+ - POST /api/thought/:thoughtId/reactions
+ - DELETE /api/thought/:thoughtId/reactions/:reactionId (to delete a reaction)
 
 ## Link to Video Walkthrough
 
-**Video:** [Link]
+**Video:** [Link](https://youtu.be/HzJ5uwG0V1k)
 
 ## Credits
 
 Stack Overflow
+AskBCS for helping to deploy onto Insomnia
 
 ## License
 
